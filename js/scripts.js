@@ -32,18 +32,19 @@ var encrypt = function(input){
      for(var j=0; j<row; j++){
        index = column*j+i;
        newInput += input.charAt(index);
-       if (input.charAt(index) !== "") {
-         theNumberOfCharactersAdded++;
-       }
-       if (theNumberOfCharactersAdded>=5 && theNumberOfCharactersAdded%5===0){
-         newInput+=" ";
-       }
+      //  somestring.replace(/(\d{4})/g, '$1 ').replace(/(^\s+|\s+$)/,'')
+      //  if (input.charAt(index) !== "") {
+      //    theNumberOfCharactersAdded++;
+      //  }
+      //  if (theNumberOfCharactersAdded>=5 && theNumberOfCharactersAdded%5===0){
+      //    newInput+=" ";
+      //  }
      }
+
    }
+   newInput = newInput.replace(/(\w{5})/g, '$1 ').replace(/(^\s+|\s+$)/,'')
    return newInput;
 }
-
-
 
 $(document).ready(function(){
   $("#input").submit(function(event){
